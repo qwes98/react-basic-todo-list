@@ -2,8 +2,13 @@ import React from 'react';
 import './TodoHead.css';
 
 function TodoHead() {
-  const dateString = '2019년 7월 10일';
-  const dayName = '수요일';
+  const today = new Date();
+  const dateString = today.toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const dayName = today.toLocaleDateString('ko-KR', { weekday: 'long' });
   const leftTaskCount = 2;
 
   return (
