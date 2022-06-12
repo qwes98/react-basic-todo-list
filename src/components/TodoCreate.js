@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TodoCreate.css';
 import { MdAdd } from 'react-icons/md';
 
 function TodoCreate() {
-  const open = true;
+  const [open, setOpen] = useState(false);
+
+  const onToggle = () => setOpen(!open);
 
   return (
     <>
@@ -17,7 +19,10 @@ function TodoCreate() {
           </form>
         </div>
       )}
-      <div className={`create-btn ${open && 'open'}`}>
+      <div
+        className={`create-btn ${open && 'open'}`}
+        onClick={onToggle}
+      >
         <MdAdd />
       </div>
     </>
