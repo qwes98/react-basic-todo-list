@@ -4,8 +4,10 @@ import { MdAdd } from 'react-icons/md';
 
 function TodoCreate() {
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('');
 
   const onToggle = () => setOpen(!open);
+  const onInputChange = e => setValue(e.target.value);
 
   return (
     <>
@@ -15,6 +17,8 @@ function TodoCreate() {
             <input
               className="insert-form-input"
               placeholder="할 일을 입력 후, Enter 를 누르세요"
+              value={value}
+              onChange={onInputChange}
             />
           </form>
         </div>
